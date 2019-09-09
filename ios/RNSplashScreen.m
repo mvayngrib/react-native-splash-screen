@@ -42,7 +42,11 @@ NSInteger const RNSplashScreenOverlayTag = 39293;
 
   UIImageView *imageView = (UIImageView *)[UIApplication.sharedApplication.keyWindow.subviews.lastObject viewWithTag:RNSplashScreenOverlayTag];
   if (imageView != nil) {
-    [imageView removeFromSuperview];
+    [UIView animateWithDuration:0.4
+                                  delay:0
+                                options:UIViewAnimationOptionCurveEaseIn
+                             animations:^{imageView.alpha = 0.0;}
+                             completion:^(BOOL finished){ [imageView removeFromSuperview]; }];
   }
 
   showing = false;
