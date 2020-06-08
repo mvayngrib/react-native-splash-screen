@@ -26,7 +26,7 @@ public class SplashScreen {
     /**
      * 打开启动屏
      */
-    public static void show(final Activity activity, final ReadableMap options) {
+    public static void show(final Activity activity, @Nullable final ReadableMap options) {
         if (activity == null) return;
         if (mSplashDialog != null) return;
 
@@ -92,9 +92,11 @@ public class SplashScreen {
                     mSplashDialog = null;
                 }
 
-                String bgColor = getBackgroundColorOption(options);
-                if (bgColor != null) {
-                    setBackgroundColorSync(_activity, bgColor);
+                if (optios != null) {
+                    String bgColor = getBackgroundColorOption(options);
+                    if (bgColor != null) {
+                        setBackgroundColorSync(_activity, bgColor);
+                    }
                 }
             }
         });
