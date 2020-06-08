@@ -8,7 +8,7 @@ import android.graphics.Color;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.ReadableMap;
-
+import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 
 /**
@@ -26,7 +26,7 @@ public class SplashScreen {
     /**
      * 打开启动屏
      */
-    public static void show(final Activity activity, @Nullable final ReadableMap options) {
+    public static void show(final Activity activity, final ReadableMap options) {
         if (activity == null) return;
         if (mSplashDialog != null) return;
 
@@ -64,7 +64,7 @@ public class SplashScreen {
     /**
      * 关闭启动屏
      */
-    public static void hide(Activity activity, final ReadableMap options) {
+    public static void hide(Activity activity, @Nullable final ReadableMap options) {
         if (activity == null) {
             if (mActivity == null) {
                 return;
@@ -92,7 +92,7 @@ public class SplashScreen {
                     mSplashDialog = null;
                 }
 
-                if (optios != null) {
+                if (options != null) {
                     String bgColor = getBackgroundColorOption(options);
                     if (bgColor != null) {
                         setBackgroundColorSync(_activity, bgColor);
