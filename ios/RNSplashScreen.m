@@ -41,6 +41,13 @@ NSInteger const RNSplashScreenOverlayTag = 39293;
   // let's try to hide, even if showing == false, ...just in case
 
   UIImageView *imageView = (UIImageView *)[UIApplication.sharedApplication.keyWindow.subviews.lastObject viewWithTag:RNSplashScreenOverlayTag];
+
+  #ifdef DEBUG
+  if (imageView == nil) {
+    imageView = (UIImageView *)[UIApplication.sharedApplication.keyWindow.subviews[UIApplication.sharedApplication.keyWindow.subviews.count - 2] viewWithTag:RNSplashScreenOverlayTag];
+  }
+  #endif
+
   if (imageView != nil) {
     [imageView removeFromSuperview];
   }
