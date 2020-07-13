@@ -41,6 +41,7 @@ NSInteger const RNSplashScreenOverlayTag = 39293;
 
   #ifdef DEBUG
   if (imageView == nil) {
+    // Allows the SplashScreen to be removed even when the perf monitor is the last subview.
     imageView = (UIImageView *)[subviews[subviews.count - 2] viewWithTag:RNSplashScreenOverlayTag];
   }
   #endif
