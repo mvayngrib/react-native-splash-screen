@@ -24,7 +24,7 @@ NSInteger const RNSplashScreenOverlayTag = 39293;
 + (void)show {
   if (showing) return;
 
-  NSString* launchImageName = [RNSplashScreen launchImageNameForOrientation:UIDeviceOrientationPortrait];
+  NSString* launchImageName = [RNSplashScreen launchImageNameForOrientation:((UIDeviceOrientation) [[UIApplication sharedApplication] statusBarOrientation])];
   UIImage *image = [UIImage imageNamed:launchImageName];
   // currently, this depends on having all required launch screen images
   if (image == nil) return;
